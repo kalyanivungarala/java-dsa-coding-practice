@@ -2,27 +2,28 @@ package com.java.operators;
 
 public class PaymentValidator {
 
-	private int paymountAmount;
+	private int paymentAmount;
 	private String paymentStatus ;
 	private String currency ;
 	private String paymentMethod ;
 	public static void main(String[] args) {
-		PaymentValidator paymentValidator = new PaymentValidator(2000,"SUCESS","INR","CARD");
-		paymentValidator.validatePayment(paymentValidator);
+		PaymentValidator paymentValidator = new PaymentValidator(2000,"SUCCESS","INR","CARD");
+		boolean isValidPayment  = paymentValidator.validatePayment();
+		System.out.println("Payment Valid : " + isValidPayment);
 	}
 
-	private  PaymentValidator(int paymountAmount, String paymentStatus, String currency ,
+	public PaymentValidator(int paymentAmount, String paymentStatus, String currency ,
 			String paymentMethod){
-		this.paymountAmount = paymountAmount;
+		this.paymentAmount = paymentAmount;
 		this.paymentStatus = paymentStatus;
 		this.currency = currency;
 		this.paymentMethod = paymentMethod;		
 
 	}
 
-	private  void validatePayment(PaymentValidator paymentValidator){
-		if(paymentValidator.paymountAmount > 0) {
-			switch(paymentValidator.paymentMethod) {
+	private  boolean validatePayment(){
+		if(this.paymentAmount > 0) {
+			switch(this.paymentMethod) {
 			case "CARD":
 				System.out.println("Card Payment");
 				break;
@@ -34,9 +35,9 @@ public class PaymentValidator {
 
 			}
 
-			switch(paymentValidator.paymentStatus) {
-			case "SUCESS":
-				System.out.println("Payment is SUCESS");
+			switch(this.paymentStatus) {
+			case "SUCCESS":
+				System.out.println("Payment is SUCCESS");
 				break;
 			case "FAILED":
 				System.out.println("Payment Failed");
@@ -45,13 +46,15 @@ public class PaymentValidator {
 			break;
 
 			}
-			if(paymentValidator.currency.equals("INR")) {
+			if(this.currency.equals("INR")) {
 				System.out.println("Currency is INR");
-			}else if(paymentValidator.currency.equals("EUR")){
-				System.out.println("Google Pay");
+			}else if(this.currency.equals("EUR")){
+				System.out.println("Currency is EUR");
 			}
+			return true;
 		}else {
-			System.out.println("paymount is lessthan 0");
+			System.out.println("payment is lessthan 0");
+			return false;
 		}
 
 	}
