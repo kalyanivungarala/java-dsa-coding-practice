@@ -46,7 +46,13 @@ public class Account {
 		savingsAccount.withdraw(2000);
 		savingsAccount.displayAccountDetails();
 		savingsAccount.addInterest();
-		savingsAccount.displayAccountDetails();
+		
+		
+		SavingsAccount savingsAccount_TULASI = new SavingsAccount("1245368970","SRINIVAS",5000000, 5);
+		savingsAccount_TULASI.deposit(5000);
+		savingsAccount_TULASI.withdraw(2000);
+		savingsAccount_TULASI.displayAccountDetails();
+		savingsAccount_TULASI.addInterest();
 		
 	}
 }
