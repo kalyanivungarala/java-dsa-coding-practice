@@ -1,0 +1,3 @@
+Deposit : 5000
+Withdrawal : 2000
+Transfer : 1000Interest Deposited : 500

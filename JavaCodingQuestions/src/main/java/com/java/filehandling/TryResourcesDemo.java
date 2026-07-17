@@ -5,23 +5,21 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 
-public class ReadCustomers {
+public class TryResourcesDemo {
 
 	public static void main(String[] args) {
-		try {
+		String fileLocation = "/Users/gopichandmeesala/git/repository_java/JavaCodingQuestions/src/main/resources/customers.txt";
 
-			FileReader file = new FileReader("/Users/gopichandmeesala/git/repository_java/JavaCodingQuestions/src/main/resources/customers.txt");
-			BufferedReader reader = new BufferedReader(file);
-			String nextLine =reader.readLine();
-			while (nextLine != null) {
+		String nextLine;
+		try (BufferedReader reader = new BufferedReader(new FileReader(fileLocation))) {
+			while ((nextLine = reader.readLine()) != null) {
 				System.out.println(nextLine);
-				nextLine = reader.readLine();
 			}
-			reader.close();
 		} catch (FileNotFoundException e) {
 			System.out.println(e.getMessage());
 		} catch (IOException e) {
 			System.out.println(e.getMessage());
 		}
 	}
+
 }
